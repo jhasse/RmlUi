@@ -40,6 +40,7 @@ class DocumentHeader;
 class Element;
 class XMLNodeHandler;
 class DataModel;
+class Context;
 
 /**
 	RmlUi's XML parsing engine. The factory creates an instance of this class for each RML parse.
@@ -75,15 +76,15 @@ public:
 		String tag;
 
 		// Element representing this frame.
-		Element* element;
+		Element* element = nullptr;
 
 		// Handler used for this frame.
-		XMLNodeHandler* node_handler;
+		XMLNodeHandler* node_handler = nullptr;
 
 		// The default handler used for this frame's children.
-		XMLNodeHandler* child_handler;
+		XMLNodeHandler* child_handler = nullptr;
 
-		DataModel* data_model;
+		DataModel* data_model = nullptr;
 	};
 
 	/// Pushes an element handler onto the parse stack for parsing child elements.
@@ -116,6 +117,8 @@ private:
 	XMLNodeHandler* active_handler;
 
 	DataModel* active_data_model;
+
+	Context* root_context;
 
 	// The parser stack.
 	typedef std::stack< ParseFrame > ParserStack;
