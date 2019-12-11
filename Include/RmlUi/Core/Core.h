@@ -37,6 +37,7 @@
 #include "ComputedValues.h"
 #include "Context.h"
 #include "ContextInstancer.h"
+#include "DataBinding.h"
 #include "Decorator.h"
 #include "DecoratorInstancer.h"
 #include "Element.h"
