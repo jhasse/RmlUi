@@ -39,8 +39,6 @@ namespace Core {
 class DocumentHeader;
 class Element;
 class XMLNodeHandler;
-class DataModel;
-class Context;
 
 /**
 	RmlUi's XML parsing engine. The factory creates an instance of this class for each RML parse.
@@ -83,8 +81,6 @@ public:
 
 		// The default handler used for this frame's children.
 		XMLNodeHandler* child_handler = nullptr;
-
-		DataModel* data_model = nullptr;
 	};
 
 	/// Pushes an element handler onto the parse stack for parsing child elements.
@@ -97,9 +93,6 @@ public:
 	/// Access the current parse frame.
 	/// @return The parser's current parse frame.
 	const ParseFrame* GetParseFrame() const;
-
-	/// Get the data model name for the current frame.
-	DataModel* GetDataModel() const;
 
 protected:
 	/// Called when the parser finds the beginning of an element tag.
@@ -115,10 +108,6 @@ private:
 
 	// The active node handler.
 	XMLNodeHandler* active_handler;
-
-	DataModel* active_data_model;
-
-	Context* root_context;
 
 	// The parser stack.
 	typedef std::stack< ParseFrame > ParserStack;
