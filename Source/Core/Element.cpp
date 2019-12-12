@@ -145,6 +145,7 @@ transform_state(), dirty_transform(false), dirty_perspective(false), dirty_anima
 	border = &element_meta->border;
 	decoration = &element_meta->decoration;
 	scroll = &element_meta->scroll;
+	data_model = nullptr;
 }
 
 Element::~Element()
